@@ -6,8 +6,10 @@
   <title>TSL — Grow Your Reviews | Free 14-day Trial</title>
   <meta name="description" content="TSL (Tech Solutions Lab) — Automated Google Review Booster + WhatsApp reminders." />
 
-  <!-- Local Phenomena font: place Phenomena-Regular.otf in /assets -->
+  <!-- Use web fonts as a safe fallback for Phenomena; replace with local OTF in /assets if available -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* If you have Phenomena font file, place it in public/assets and uncomment below to use it:
     @font-face {
       font-family: 'Phenomena';
       src: url('assets/Phenomena-Regular.otf') format('opentype');
@@ -15,6 +17,7 @@
       font-style: normal;
       font-display: swap;
     }
+    */
   </style>
 
   <style>
@@ -31,7 +34,7 @@
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);font-family:Phenomena,Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#e6eef8}
+    html,body{height:100%;margin:0;background:var(--bg);font-family:'Playfair Display',Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;color:#e6eef8}
     a{color:inherit;text-decoration:none}
     .container{max-width:var(--max-width);margin:0 auto;padding:36px}
 
@@ -122,7 +125,7 @@
     <header>
       <div class="brand">
         <div class="logo">
-          <img src="assets/tsl-logo.png" alt="TSL logo" style="width:100%;height:100%;object-fit:contain;display:block">
+          <img src="assets/tsl-logo.svg" alt="TSL logo" style="width:100%;height:100%;object-fit:contain;display:block">
         </div>
         <div>
           <h1>TSL</h1>
