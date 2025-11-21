@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: tsl-backend
+    env: node
+    plan: starter
+    branch: main
+    dir: .
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars: []
