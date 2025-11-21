@@ -4,12 +4,42 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import axios from "axios";
+import path from "path";
 
 dotenv.config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Serve the landing page (static files) from local `public` directory inside the backend
+// This is included in the deploy bundle so Render will serve the landing page correctly.
+const landingDir = path.resolve(process.cwd(), "public");
+console.log('Serving landing from', landingDir);
+app.use(express.static(landingDir));
+
+// Serve index.html at root for browser requests
+app.get("/", (req, res) => {
+  const indexPath = path.join(landingDir, "index.html");
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('Failed to send index.html:', err);
+      res.status(404).send('Landing page not found');
+    }
+  });
+});
+
+// For single-page app routes and refreshes, serve index.html for any other GET path
+app.get('*', (req, res, next) => {
+  if (req.method !== 'GET') return next();
+  const indexPath = path.join(landingDir, 'index.html');
+  res.sendFile(indexPath, (err) => {
+    if (err) {
+      console.error('Failed to send index.html for route', req.path, err);
+      next();
+    }
+  });
+});
 
 // ---------- MongoDB connection (with in-memory fallback) ----------
 let mongoUri = process.env.MONGO_URI;
