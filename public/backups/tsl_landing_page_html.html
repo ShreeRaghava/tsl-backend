@@ -17,8 +17,307 @@
     }
   </style>
 
-  <!-- (CSS omitted for brevity in backup) -->
-  <style>/* full page styles omitted in backup copy to keep file concise; original is preserved locally */</style>
+  <style>
+    :root{
+      --bg:#212020;
+      --card:#0b1220;
+      --muted:#9aa6b1;
+      --accent:#0b6b6b;    /* teal */
+      --accent-2:#c57a48;  /* copper */
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius:14px;
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{
+      height:100%;
+      margin:0;
+      background:var(--bg);
+      font-family:Phenomena,Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      color:#e6eef8;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:20px 16px 40px;
+    }
+
+    /* header */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0 8px;
+      gap:16px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .logo{
+      width:56px;
+      height:56px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .brand h1{
+      font-size:18px;
+      margin:0;
+      font-weight:700;
+    }
+    .brand .tag{
+      font-size:12px;
+      color:var(--muted);
+    }
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+      font-size:14px;
+    }
+    nav a{opacity:.9}
+    nav a:hover{opacity:1}
+    .cta{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      padding:8px 14px;
+      border-radius:12px;
+      font-weight:700;
+      color:white;
+      border:0;
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    /* hero */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+      gap:28px;
+      align-items:center;
+      padding:28px 0 32px;
+    }
+    .hero-left h2{
+      font-family:Phenomena,serif;
+      font-size:38px;
+      margin:0 0 10px;
+      line-height:1.05;
+    }
+    .hero-left p{
+      color:var(--muted);
+      margin:0 0 16px;
+      font-size:15px;
+      max-width:760px;
+      line-height:1.5;
+    }
+    .kpis{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    .kpi{
+      background:var(--glass);
+      padding:10px 12px;
+      border-radius:12px;
+      min-width:110px;
+      text-align:center;
+    }
+    .kpi strong{display:block;font-size:17px}
+    .hero-cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:20px;
+    }
+    .btn{
+      padding:11px 16px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      border:0;
+      font-size:14px;
+    }
+    .btn-primary{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:#02101a;
+    }
+    .btn-ghost{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.06);
+      color:var(--accent);
+      padding:9px 15px;
+    }
+
+    /* animations */
+    .reveal{opacity:0;transform:translateY(12px);animation:revealUp .9s ease forwards}
+    @keyframes revealUp{to{opacity:1;transform:none}}
+    .btn-shimmer{position:relative;overflow:hidden}
+    .btn-shimmer::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      left:-40%;
+      background:linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      transform:skewX(-20deg);
+      transition:all .9s;
+    }
+    .btn-shimmer:hover::after{left:120%}
+
+    /* card */
+    .card{
+      background:linear-gradient(180deg, rgba(11,16,18,0.9), rgba(11,16,18,0.65));
+      border-radius:18px;
+      padding:18px;
+      box-shadow:none;
+      border:1px solid rgba(255,255,255,0.05);
+      backdrop-filter:blur(4px);
+      color:#e6eef8;
+    }
+    .card h3{margin:0 0 10px;font-size:18px}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,0.2)}
+
+    /* sections */
+    section{scroll-margin-top:80px}
+
+    /* services grid */
+    .section-title{
+      font-size:22px;
+      margin:18px 0 10px;
+    }
+    .section-sub{
+      color:var(--muted);
+      font-size:14px;
+      max-width:640px;
+      line-height:1.6;
+    }
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+      margin-top:24px;
+    }
+    .service{
+      background:rgba(255,255,255,0.02);
+      padding:16px;
+      border-radius:14px;
+      font-size:14px;
+    }
+    .service h4{margin:4px 0 8px;font-size:15px}
+    .service p{margin:0;color:var(--muted);line-height:1.6}
+
+    /* review automation sub-section */
+    .review-block{
+      margin-top:32px;
+      display:grid;
+      grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+      gap:18px;
+      align-items:flex-start;
+    }
+
+    /* pricing */
+    .pricing{
+      display:flex;
+      gap:18px;
+      margin-top:24px;
+      align-items:stretch;
+      flex-wrap:wrap;
+    }
+    .plan{
+      background:transparent;
+      border-radius:14px;
+      padding:18px;
+      flex:1 1 260px;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+    .plan h5{margin:0 0 6px;font-size:16px}
+    .price{font-size:22px;font-weight:800;margin:6px 0}
+    .plan ul{color:var(--muted);padding-left:18px;line-height:1.7;margin:8px 0 0}
+    .plan button{margin-top:14px}
+    .addon{
+      margin-top:18px;
+      padding:14px 16px;
+      border-radius:12px;
+      background:rgba(11,107,107,0.08);
+      border:1px dashed rgba(197,122,72,0.6);
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    /* footer & CTA */
+    .footer-cta{
+      margin-top:34px;
+      background:linear-gradient(90deg, rgba(11,107,107,0.05), rgba(197,122,72,0.04));
+      padding:18px;
+      border-radius:12px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    footer{
+      margin-top:40px;
+      padding:24px 0 10px;
+      color:var(--muted);
+      font-size:14px;
+    }
+    footer .cols{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+    footer .col{min-width:200px}
+
+    ul{list-style:disc;margin-left:18px;padding-left:2px;color:var(--muted)}
+    li{margin-bottom:6px}
+
+    /* responsive */
+    @media (max-width:900px){
+      header{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      nav{
+        width:100%;
+        justify-content:flex-start;
+        flex-wrap:wrap;
+        row-gap:8px;
+      }
+      .hero{
+        grid-template-columns:1fr;
+        padding-top:20px;
+      }
+      .hero-left h2{font-size:30px}
+      .hero-left p{font-size:14px}
+      .kpis{gap:8px}
+      .services{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .review-block{grid-template-columns:1fr}
+    }
+    @media (max-width:640px){
+      .container{padding:16px 14px 32px;}
+      .logo{width:50px;height:50px;}
+      .brand h1{font-size:17px}
+      .hero-left h2{font-size:26px}
+      .services{grid-template-columns:1fr}
+      .pricing{flex-direction:column}
+      nav{flex-wrap:wrap;font-size:13px;gap:10px}
+      .cta{margin-left:auto}
+    }
+
+    .btn-primary:hover{transform:translateY(-2px)}
+  </style>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -44,12 +343,279 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Full page HTML is preserved locally; this backup file references local logo for completeness -->
-  <div style="padding:16px;color:#e6eef8;background:#212020;font-family:Inter,Arial;min-height:100vh;">
-    <h2>Backup: TSL landing page (full content preserved locally)</h2>
-    <p>Filename: <strong>tsl_landing_page_html.html</strong></p>
-    <p>Use this file as a lightweight backup. The original full HTML is available in your workspace.</p>
-    <p>Logo reference (copied to backups): <img src="tsl-logo.png" alt="logo" style="height:40px;vertical-align:middle;margin-left:8px"></p>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">
+          <img src="tsl-logo.png" alt="TSL logo" style="width:100%;height:100%;object-fit:contain;display:block">
+        </div>
+        <div>
+          <h1>TSL</h1>
+          <div class="tag">Tech Solutions Lab — AI Automation & Systems</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:3px">Founder: Lokesh Veera Raghavalu.S</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#automation">Automation</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <button class="cta btn btn-shimmer" id="contactNav">Book Free Demo</button>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-left reveal" style="animation-delay:.05s">
+        <h2>We build AI automation systems for businesses — <span style="color:var(--accent-2)">zero coding, zero manual work.</span></h2>
+        <p>TSL designs and builds AI agents, automations, micro SaaS tools, and WhatsApp workflows so your team can focus on work that actually matters — not repetitive tasks.</p>
+
+        <div class="kpis">
+          <div class="kpi"><strong>10–40 hrs</strong><div style="color:var(--muted);font-size:12px">Manual work saved / month</div></div>
+          <div class="kpi"><strong>2–5x</strong><div style="color:var(--muted);font-size:12px">Faster lead follow-ups</div></div>
+          <div class="kpi"><strong>14 days</strong><div style="color:var(--muted);font-size:12px">Done-for-you pilot</div></div>
+        </div>
+
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-shimmer" id="startTrial">Start Free Pilot</button>
+          <button class="btn btn-ghost" onclick="openContact()">Talk to Sales</button>
+        </div>
+
+        <div style="margin-top:16px;color:var(--muted);font-size:13px">
+          <strong>Ideal for:</strong> Agencies • Clinics • Coaches • Local businesses • SaaS founders
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE: Why businesses choose TSL -->
+      <aside class="card reveal" style="animation-delay:.12s">
+        <h3>Why businesses choose TSL</h3>
+        <ul>
+          <li><strong>AI-first automations</strong> for lead gen, onboarding, support, and operations.</li>
+          <li><strong>WhatsApp, email, and API workflows</strong> tailored to your stack.</li>
+          <li><strong>Micro SaaS & internal tools</strong> built specifically for your process.</li>
+          <li><strong>Review automation add-on</strong> to grow your Google ratings on autopilot.</li>
+          <li><strong>Retainer model</strong> so your systems improve every month, not just once.</li>
+        </ul>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <button class="btn btn-primary btn-shimmer" onclick="activatePilot()">Start Free Pilot</button>
+          <button class="btn btn-ghost" onclick="openContact()">Share your use case</button>
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES / WHAT WE DO -->
+    <section id="services">
+      <h3 class="section-title">What we build at TSL</h3>
+      <p class="section-sub">We design and ship custom automations, AI agents, and micro SaaS tools that plug into how you already work — WhatsApp, CRM, spreadsheets, or your existing software.</p>
+
+      <div class="services">
+        <div class="service reveal">
+          <h4>AI automations</h4>
+          <p>End-to-end workflows that take repetitive tasks off your plate — follow-ups, reminders, notifications, and routing.</p>
+        </div>
+        <div class="service reveal">
+          <h4>AI agents & chatbots</h4>
+          <p>Agents that answer queries, qualify leads, collect data, and push it into your CRM or Google Sheets.</p>
+        </div>
+        <div class="service reveal">
+          <h4>Micro SaaS tools</h4>
+          <p>Lightweight web tools and internal apps that solve one specific problem for you or your clients.</p>
+        </div>
+        <div class="service reveal">
+          <h4>API & micro-APIs</h4>
+          <p>Small, focused APIs you can plug into your own products to add automation or intelligence quickly.</p>
+        </div>
+        <div class="service reveal">
+          <h4>WhatsApp automation</h4>
+          <p>Flows for lead capture, reminders, customer onboarding, support, and review requests — all automated.</p>
+        </div>
+        <div class="service reveal">
+          <h4>Workflow & CRM automation</h4>
+          <p>Glue between forms, CRMs, billing, sheets, and dashboards so data moves without manual work.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEW AUTOMATION SUB-SECTION -->
+    <section id="automation">
+      <h3 class="section-title">TSL Review Automation (built-in engine)</h3>
+      <p class="section-sub">We started with review automation — and it remains one of our core engines. Plug it into any TSL plan to grow your Google reviews without chasing customers.</p>
+
+      <div class="review-block">
+        <div>
+          <h4 style="margin:6px 0 10px">What the review engine does for you</h4>
+          <ul>
+            <li>Requests reviews via WhatsApp after each visit or interaction.</li>
+            <li>Collects negative feedback privately so you can fix issues before they go public.</li>
+            <li>Sends reminders to increase the number of customers who actually leave a review.</li>
+            <li>Gives you simple weekly snapshots of how your rating and review count are moving.</li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h4 style="margin-top:0">Pilot details</h4>
+            <ul style="margin-top:8px">
+              <li>14-day done-for-you pilot.</li>
+              <li>Up to 300 review invites for your customers.</li>
+              <li>Weekly progress summary to your WhatsApp.</li>
+              <li>No card required — pay only if you see value.</li>
+            </ul>
+            <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+              <button class="btn btn-primary btn-shimmer" id="startPilot">Activate Review Pilot</button>
+              <button class="btn btn-ghost" onclick="openContact()">Talk to Sales</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS (for automation in general) -->
+    <section id="how" style="margin-top:32px">
+      <h3 class="section-title">How a TSL automation project works</h3>
+      <p class="section-sub">We keep it simple: short call, clear problem, quick pilot, and then only continue if it clearly saves you time or makes you money.</p>
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap;margin-top:18px">
+        <div style="flex:1;min-width:260px">
+          <ol style="color:var(--muted);padding-left:18px;line-height:1.8">
+            <li><strong>Understand your workflow</strong> — where manual work or leads are being wasted.</li>
+            <li><strong>Prototype an automation</strong> — AI agent, workflow, or micro tool within a 7–14 day pilot.</li>
+            <li><strong>Test with real data</strong> — we plug into your existing stack (WhatsApp, CRM, sheets, etc.).</li>
+            <li><strong>Decide on a retainer</strong> — if results are clear, we move to a monthly retainer or fixed plan.</li>
+          </ol>
+        </div>
+        <div style="flex:1;min-width:260px">
+          <div class="card">
+            <h4 style="margin-top:0">Examples of automations we can build</h4>
+            <ul>
+              <li>AI agent that qualifies leads and books appointments automatically.</li>
+              <li>Micro SaaS to generate proposals or reports from a simple form.</li>
+              <li>WhatsApp bot that nudges customers to complete payments or forms.</li>
+              <li>API that scores leads, tags them, and routes them into the right pipeline.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING (services + SaaS mixed) -->
+    <section id="pricing" style="margin-top:34px">
+      <h3 class="section-title">Pricing</h3>
+      <p class="section-sub">Start with a pilot, then move to a simple monthly structure. No long-term lock-in — you stay only if the automations keep delivering.</p>
+
+      <div class="pricing">
+        <div class="plan">
+          <h5>Startup Automation Pack</h5>
+          <div class="price">₹4,999 / mo</div>
+          <div style="color:var(--muted)">For solo operators, coaches, and small teams.</div>
+          <ul>
+            <li>1–2 core automations (lead follow-ups, reminders, or simple workflows).</li>
+            <li>WhatsApp & email flows connected to your existing tools.</li>
+            <li>Optional review automation add-on.</li>
+            <li>Email + WhatsApp support.</li>
+          </ul>
+          <button class="btn btn-primary btn-shimmer" onclick="activatePilot()">Start with a pilot</button>
+        </div>
+
+        <div class="plan">
+          <h5>Business Automation Pack</h5>
+          <div class="price">₹9,999 / mo</div>
+          <div style="color:var(--muted)">For growing businesses and agencies.</div>
+          <ul>
+            <li>3–5 live automations (lead gen, onboarding, reporting, etc.).</li>
+            <li>Micro SaaS components or internal tools as needed.</li>
+            <li>TSL Review Automation engine included.</li>
+            <li>Monthly metrics & improvement cycle.</li>
+          </ul>
+          <button class="btn btn-primary btn-shimmer" onclick="activatePilot()">Book a consult</button>
+        </div>
+
+        <div class="plan">
+          <h5>AI + SaaS Retainer</h5>
+          <div class="price">₹14,999 – ₹49,999 / mo</div>
+          <div style="color:var(--muted)">For businesses that want a long-term automation partner.</div>
+          <ul>
+            <li>Custom AI agents, micro SaaS, and APIs designed around your operations.</li>
+            <li>Priority development, experiments, and ongoing optimisation.</li>
+            <li>Review automation rolled into the stack.</li>
+            <li>Dedicated automation specialist.</li>
+          </ul>
+          <button class="btn btn-primary btn-shimmer" onclick="openContact()">Request a custom quote</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-cta">
+      <div>
+        <div style="font-weight:700">Ready to offload some work to automation?</div>
+        <div style="color:var(--muted);font-size:14px">Share your use case, and we will tell you exactly what to automate in the first 14 days.</div>
+      </div>
+      <div><button class="btn btn-primary btn-shimmer" id="footerTrial">Start Free Pilot</button></div>
+    </div>
+
+    <footer id="contact">
+      <div class="cols">
+        <div class="col">
+          <div style="font-weight:700">TSL — Tech Solutions Lab</div>
+          <div style="color:var(--muted);margin-top:8px">We don’t sell complex software. We build systems that quietly do the work for you.</div>
+        </div>
+
+        <div class="col">
+          <div style="font-weight:700">Contact</div>
+          <div style="color:var(--muted);margin-top:8px">WhatsApp: <a href="https://wa.me/918688654727" target="_blank" style="color:var(--accent-2)">+91 8688654727</a></div>
+          <div style="color:var(--muted);margin-top:4px">Email: <a href="mailto:lokeshveeraraghavalu@gmail.com" style="color:var(--muted)">lokeshveeraraghavalu@gmail.com</a></div>
+          <div style="color:var(--muted);margin-top:6px">Contact Person: <strong>Lokesh Veera Raghavalu.S</strong></div>
+        </div>
+
+        <div class="col">
+          <div style="font-weight:700">Quick Links</div>
+          <div style="color:var(--muted);margin-top:8px"><a href="#services">Services</a> • <a href="#automation">Automation</a> • <a href="#pricing">Pricing</a></div>
+        </div>
+      </div>
+
+      <div style="margin-top:20px;color:var(--muted)">© 2025 TSL. All rights reserved.</div>
+    </footer>
   </div>
+
+  <script>
+    // Set API base dynamically to the same origin (backend + frontend on Render)
+    window.__TSL_API_BASE__ = window.location.origin;
+
+    // simple flows
+    document.getElementById && document.getElementById('contactNav') && document.getElementById('contactNav').addEventListener('click', openContact);
+    document.getElementById && document.getElementById('startTrial') && document.getElementById('startTrial').addEventListener('click', activatePilot);
+    document.getElementById && document.getElementById('startPilot') && document.getElementById('startPilot').addEventListener('click', activatePilot);
+    document.getElementById && document.getElementById('footerTrial') && document.getElementById('footerTrial').addEventListener('click', activatePilot);
+
+    const API_BASE = window.__TSL_API_BASE__ || window.location.origin;
+
+    async function activatePilot(){
+      const phone = prompt('Enter your WhatsApp number (with country code):');
+      if(!phone) return;
+      const name = prompt('Your name (for our specialist):') || '';
+      const businessName = prompt('Your business name:') || '';
+
+      try{
+        await fetch(API_BASE + '/api/pilot', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, businessName, phone, email: '', businessType: '', notes: 'Landing page pilot signup' })
+        });
+      } catch(e){
+        console.error('Pilot API error', e);
+        alert('We could not save your details to the server; we will still open WhatsApp so you can message us directly.');
+      }
+
+      alert('Thanks — a TSL specialist will message you on WhatsApp shortly.');
+      window.location.href = 'https://wa.me/' + phone.replace(/[^0-9]/g,'');
+    }
+
+    function openContact(){
+      const el = document.getElementById('contact');
+      if(!el){ window.location.href = '#contact'; return; }
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({top, behavior:'smooth'});
+    }
+  </script>
 </body>
 </html>

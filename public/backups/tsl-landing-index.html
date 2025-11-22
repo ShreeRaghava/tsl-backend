@@ -1,20 +1,76 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TSL — Grow Your Reviews (Backup)</title>
-  <meta name="description" content="Backup copy of the reviews landing page." />
-  <style>body{background:#212020;color:#e6eef8;font-family:Inter,Arial;padding:20px} img{height:40px;vertical-align:middle}</style>
-  <!-- GTM + GA preserved in backup header -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PKJ2TQ9X');</script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-748L220S8B"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-748L220S8B');</script>
-</head>
-<body>
-  <h2>Backup: Reviews landing page</h2>
-  <p>Filename: <strong>tsl-landing/index.html</strong></p>
-  <p>Logo: <img src="tsl-logo.png" alt="logo"></p>
-  <p>Full page content is preserved in the workspace; this file is a compact backup stored in the repo.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TSL — Landing</title>
+    <meta name="description" content="TSL landing page backup" />
+
+    <style>
+      :root{--bg:#121212;--muted:#9aa6b1;--accent:#0b6b6b}
+      html,body{height:100%;margin:0;padding:0;background:var(--bg);color:#eaf0f6;font-family:Phenomena,Inter,system-ui,Arial}
+      .wrap{max-width:980px;margin:20px auto;padding:18px}
+      header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+      .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#c57a48);display:flex;align-items:center;justify-content:center;overflow:hidden}
+      h1{margin:0;font-size:20px}
+      p{color:var(--muted)}
+      .hero{display:flex;gap:18px;margin-top:18px}
+      .card{background:rgba(255,255,255,0.02);padding:12px;border-radius:12px}
+    </style>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PKJ2TQ9X');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-748L220S8B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-748L220S8B');
+    </script>
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKJ2TQ9X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="wrap">
+      <header>
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="logo"><img src="tsl-logo.png" alt="logo" style="width:56px;height:56px;object-fit:contain"></div>
+          <div>
+            <h1>TSL — Tech Solutions Lab</h1>
+            <div style="color:var(--muted);font-size:13px">AI Automation Systems & Micro SaaS</div>
+          </div>
+        </div>
+        <div style="font-size:13px;color:var(--muted)">Contact: <a href="https://wa.me/918688654727" style="color:#c57a48">WhatsApp</a></div>
+      </header>
+
+      <main style="margin-top:18px">
+        <div class="hero">
+          <div style="flex:1">
+            <h2 style="margin:0 0 8px">We build automations, AI agents, and tools that remove manual work.</h2>
+            <p style="color:var(--muted)">This is a verbatim backup copy of <code>tsl-landing/index.html</code> from the workspace.</p>
+            <div style="margin-top:12px;display:flex;gap:10px">
+              <a href="#" style="background:linear-gradient(90deg,var(--accent),#c57a48);padding:10px 14px;border-radius:10px;color:#02101a;font-weight:700">Start Pilot</a>
+              <a href="#contact" style="padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);color:var(--muted)">Contact</a>
+            </div>
+          </div>
+          <aside style="width:320px">
+            <div class="card">
+              <h4 style="margin:0 0 8px">Pilot</h4>
+              <p style="color:var(--muted);margin:0">14-day done-for-you pilot. No card required. Up to 300 invites for review automation included.</p>
+            </div>
+          </aside>
+        </div>
+      </main>
+
+      <footer id="contact" style="margin-top:24px;color:var(--muted)">
+        <div>Founder: <strong>Lokesh Veera Raghavalu.S</strong></div>
+        <div style="margin-top:8px">Email: <a href="mailto:lokeshveeraraghavalu@gmail.com" style="color:var(--muted)">lokeshveeraraghavalu@gmail.com</a></div>
+      </footer>
+    </div>
+  </body>
 </html>
